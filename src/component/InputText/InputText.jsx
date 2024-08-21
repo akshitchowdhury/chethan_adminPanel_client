@@ -9,7 +9,7 @@ const InputText = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('/postText', {
+      const response = await fetch('https://chethan-admin-panel-server.vercel.app/postText', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
