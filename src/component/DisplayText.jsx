@@ -9,6 +9,24 @@ const DisplayText = () => {
     setContent(dataFlow);
   };
 
+  const deleteText = async (id) => {
+    try {
+      const response = await fetch(`https://chethan-admin-panel-server.vercel.app/deleteText/${id}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        // Remove the deleted item from the state
+        setContent(content.filter(item => item._id !== id));
+        console.log('Item deleted successfully');
+      } else {
+        console.error('Failed to delete item');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -21,6 +39,11 @@ const DisplayText = () => {
             <h2 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h2>
             <p className="text-gray-600">{item.description}</p>
             <p className="text-gray-800 font-bold mt-4">Rating: {item.rating}</p>
+            <button 
+              onClick={() => deleteText(item._id)}
+              className="mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700 transition-colors duration-300">
+              Delete
+            </button>
           </div>
         ))}
       </div>
