@@ -5,7 +5,7 @@ const DisplayText = () => {
     const [content, setContent] = useState([]) 
     const fetchData = async function(){
 
-        const data = await fetch("http://localhost:3001/getText", {method: "GET"})
+        const data = await fetch("https://chethan-admin-panel-server.vercel.app/getText", {method: "GET"})
 
         const dataFlow = await data.json();
 
