@@ -9,7 +9,7 @@ const InputText = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3001/postText', {
+      const response = await fetch('/postText', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
