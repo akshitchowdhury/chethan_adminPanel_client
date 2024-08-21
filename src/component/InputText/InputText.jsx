@@ -28,6 +28,7 @@ const InputText = () => {
         setTitle('');
         setDescription('');
         setRating('');
+        window.location.reload()
       } else {
         console.error('Error:', response.statusText);
       }
